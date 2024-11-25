@@ -88,18 +88,18 @@
 //   }
 // }
 //
-class PixabayModel {
+class Pixabay {
   int? total, totalHits;
   List<Hits>? hits;
 
-  PixabayModel({
+  Pixabay({
     required this.total,
     required this.totalHits,
     required this.hits,
   });
 
-  factory PixabayModel.fromJson(Map m1) {
-    return PixabayModel(
+  factory Pixabay.fromJson(Map m1) {
+    return Pixabay(
       total: m1['total'],
       totalHits: m1['totalHits'],
       hits: (m1['hits'] as List)

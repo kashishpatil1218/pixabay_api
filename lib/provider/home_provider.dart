@@ -4,12 +4,20 @@ import 'package:pixabay_apicalling/modal/pixabay_modal.dart';
 
 class HomeProvider extends ChangeNotifier
 {
-  PixabayModel?  pixabay;
+  Pixabay?  pixabay;
+  Pixabay? searchResults;
+
+  Future<void> fetchPhotosResult(String search)
+  async {
+   Map json = await ApiHelper.apiHelper.fetchApiDataBySearch(search);
+    searchResults = Pixabay.fromJson(json);
+    notifyListeners();
+  }
 
   Future<void> fetchPhotos()
   async {
     Map json = await ApiHelper.apiHelper.fethchApiData();
-   pixabay =  PixabayModel.fromJson(json);
+   pixabay =  Pixabay.fromJson(json);
    notifyListeners();
   }
   HomeProvider()
