@@ -25,7 +25,7 @@ class ApiHelper {
 //for search the data
   Future<Map> fetchApiDataBySearch(String search) async {
     Response response = await http.get(Uri.parse(
-        '"https://pixabay.com/api/?key=47278739-e93ded0cbb4c55ad7b3548bd4&q=$search"'));
+        'https://pixabay.com/api/?key=47278739-e93ded0cbb4c55ad7b3548bd4&q=$search'));
     if (response.statusCode == 200) {
       return jsonDecode(response.body);
 
